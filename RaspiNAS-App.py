@@ -654,10 +654,3 @@ def calc_hash(obj) -> bytes:
 
 if __name__ == "__main__":
     MainWindow().handle_socket_connection()
-
-    # while True:
-    #     win.selector_frame.wait_variable(win.selector_frame.selected_path)
-    #     win.remove_error()
-    #     print(win.selector_frame.get_path())
-    #     if win.selector_frame.get_path() == "MB":
-    #         break
