@@ -9,8 +9,8 @@ Die App ist sowohl unter **Windows** als auch unter **Linux** lauffähig. Die en
 ## Einrichtung
 
 1. Passendes Archiv von der Release-Seite herunterladen und entpacken.
-2. Sprache, Server-IP und Port in der `config.json` Datei eintragen. **Achtung:** Die `config.json` muss sich unbedingt weiterhin im gleichen Verzeichnis wie das `RaspiNAS-App` Script befinden.
-3. Die EXE-Datei oder das Linux-Script ausführen, ggf. vorher mit `chmod +x RaspiNAS-App` ausführbar machen.
+2. Sollte die Datei `config.json` manuell angepasst werden, muss unbedingt darauf geachtet werden, dass diese sich weiterhin im gleichen Verzeichnis wie das `raspinas-app` Script befindet.
+3. Die exe-Datei oder das Linux-Script ausführen, ggf. vorher mit `chmod +x raspinas-app` ausführbar machen.
 
 ## Ausführbare Datei selbst erzeugen
 
@@ -19,10 +19,10 @@ Dies kann bspw. hilfreich sein, um herauszufinden, ob das Programm auch unter ma
 Die RaspiNAS-App wurde mittels [PyInstaller](https://pyinstaller.org) gepackt. Folgende Abhängigkeiten müssen hierfür erfüllt sein:
 
 * PyInstaller - `pip install -U pyinstaller`
-* Tkinter - `apt install python3-tk` / `pacman -S tk`
-* Pillow (für die GIF -> ICO Konvertierung unter Windows) - `pip install -U Pillow`
+* PySide6 - Arch: `pacman -S pyside6` / Alternativ mit pip: `pip install -U PySide6`
+* Pillow (für die png -> ico Konvertierung unter Windows) - `pip install -U Pillow`
 
-Dann kann die App im Hauptverzeichnis mit folgendem Befehl gepackt werden: `pyinstaller --onefile --windowed --icon=icons/raspinas.gif RaspiNAS-App.py`
+Dann kann die App im Hauptverzeichnis mit folgendem Befehl gepackt werden: `pyinstaller --onefile --windowed --icon=icons/raspinas.png raspinas-app.py`
 
 > Hinweis:<br>
 > Die Socket-Verbindung überträgt Daten zwar besonders schnell, ist dabei aber nicht verschlüsselt. Aus diesem Grund sollte sie ausschließlich im lokalen, nicht öffentlichen Netzwerk verwendet werden (z.B. für Backups).
@@ -38,8 +38,8 @@ The app runs under **Windows** as well as under **Linux**. The corresponding exe
 ## Setup
 
 1. Download the appropriate archive from the release page and unpack it.
-2. Enter language, server IP and port in the `config.json` file. **Attention:** The `config.json` must be in the same directory as the `RaspiNAS-App` script.
-3. Execute the EXE file or the Linux script, if necessary make it executable with `chmod +x RaspiNAS-App` first.
+2. If the file `config.json` is edited manually, ensure that it is still in the same directory as the `raspinas-app` script.
+3. Execute the exe file or the Linux script, if necessary make it executable with `chmod +x raspinas-app` first.
 
 ## Build the executable file from source
 
@@ -48,10 +48,10 @@ This can be helpful, for example, to find out whether the program is also execut
 The RaspiNAS-App was packaged using [PyInstaller](https://pyinstaller.org). The following dependencies must be fulfilled therefor:
 
 * PyInstaller - `pip install -U pyinstaller`
-* Tkinter - `apt install python3-tk` / `pacman -S tk`
-* Pillow (for the GIF -> ICO conversion under Windows) - `pip install -U Pillow`
+* PySide6 - Arch: `pacman -S pyside6` / alternatively with pip: `pip install -U PySide6`
+* Pillow (for the png -> ico conversion under Windows) - `pip install -U Pillow`
 
-Then the app can be packaged in the main directory with the following command: `pyinstaller --onefile --windowed --icon=icons/raspinas.gif RaspiNAS-App.py`
+Then the app can be packaged in the main directory with the following command: `pyinstaller --onefile --windowed --icon=icons/raspinas.png raspinas-app.py`
 
 > Note:<br>
 > Although the socket connection transfers data particularly quickly, it is not encrypted. For this reason, it should only be used in the local, non-public network (e.g. for backups).
